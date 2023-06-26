@@ -60,3 +60,5 @@ class TicketService {
 //Testing the code
 const ticketService = new TicketService();
 console.log(ticketService.processPurchase(0, 2, 1));  // outputs: 'Purchase processed successfully'
+
+module.exports = TicketService;
