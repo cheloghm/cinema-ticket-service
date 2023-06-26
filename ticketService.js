@@ -39,4 +39,20 @@ class TicketService {
         return child + adult;
     }
 
+    processPurchase(infant, child, adult) {
+        if (!this.validatePurchaseRequest(infant, child, adult)) {
+            return 'Invalid purchase request';
+        }
+
+        const totalPrice = this.calculateTotalPrice(infant, child, adult);
+        const seatsToReserve = this.calculateSeatsToReserve(infant, child, adult);
+
+        // Here, I would have made the actual calls to the TicketPaymentService and SeatReservationService
+        // But for this, I'll just simulate that with a console.log
+        console.log(`Making a payment request of £${totalPrice} to TicketPaymentService...`);
+        console.log(`Making a seat reservation request of ${seatsToReserve} seats to SeatReservationService...`);
+
+        return 'Purchase processed successfully';
+    }
+
 }
