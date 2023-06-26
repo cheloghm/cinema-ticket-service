@@ -34,4 +34,9 @@ class TicketService {
         return true;
     }
 
+    calculateSeatsToReserve(infant, child, adult) {
+        // Infant tickets do not require a seat
+        return child + adult;
+    }
+
 }
