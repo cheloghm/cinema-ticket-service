@@ -13,4 +13,25 @@ class TicketService {
                (adult * this.ticketPrices['ADULT']);
     }
 
+    validatePurchaseRequest(infant, child, adult) {
+        const totalTickets = infant + child + adult;
+
+        // A request is invalid if it includes more than 20 tickets
+        if (totalTickets > 20) {
+            return false;
+        }
+
+        // A request is invalid if it includes child or infant tickets without adult tickets
+        if ((child > 0 || infant > 0) && adult === 0) {
+            return false;
+        }
+
+        // A request is invalid if it includes no tickets
+        if (totalTickets === 0) {
+            return false;
+        }
+
+        return true;
+    }
+
 }
